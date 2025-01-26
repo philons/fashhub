@@ -72,11 +72,10 @@ section {
 }
 
 footer {
-    background: #222;
-    color: white;
-    padding: 3px;
-    margin-top: 4px;
-}
+   color: white;  /* Footer text color */
+    text-align: center;
+    padding: 10px;
+    position: relative;
 
 button {
     padding: 10px;
