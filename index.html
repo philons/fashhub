@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Hub - Trendy Wear</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Fashion Hub</h1>
+        <nav>
+            <a href="#products">Shop</a>
+            <a href="#contact">Contact</a>
+            <a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
+            <a href="orders.html">📦 Orders</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Stay Stylish, Stay Unique</h2>
+        <p>Exclusive fashion at affordable prices.</p>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Our Store</h2>
+        <div class="product-list">
+            <div class="product" data-name="t-shirt" data-price="25000">
+                <img src="tshirt.jpg" alt="T-Shirt">
+                <h3>Graphic T-Shirt</h3>
+                <p>Price: UGX 25,000</p>
+                <button onclick="addToCart('Graphic T-Shirt', 25000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="jacket" data-price="120000">
+                <img src="jacket.jpg" alt="Jacket">
+                <h3>Leather Jacket</h3>
+                <p>Price: UGX 120,000</p>
+                <button onclick="addToCart('Leather Jacket', 120000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="sneakers" data-price="80000">
+                <img src="sneakers.jpg" alt="Sneakers">
+                <h3>White Sneakers</h3>
+                <p>Price: UGX 80,000</p>
+                <button onclick="addToCart('White Sneakers', 80000)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Address: 456 Fashion Ave, City</p>
+        <p>📞 Phone: +987 654 3210</p>
+        <p>📧 Email: support@fashionhub.com</p>
+        
+        <div class="links">
+            <a href="http://tiktok.com/@_philonsmusic" target="_blank">TikTok</a>
+            <a href="https://www.facebook.com/ssenyonga.phillip.3" target="_blank">Facebook</a>
+            <a href="http://tiktok.com/@_philonsmusic" target="_blank">X</a>
+            <a href="http://tiktok.com/@_philonsmusic" target="_blank">YouTube</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fashion Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

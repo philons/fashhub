@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Fashion Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Shopping Cart</h1>
+        <nav>
+            <a href="index.html">🏠 Back to Shop</a>
+        </nav>
+    </header>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total:</strong> UGX <span id="cart-total">0</span></p>
+
+        <h3>Customer Details</h3>
+        <form id="order-form">
+            <input type="text" id="customer-name" placeholder="Full Name" required>
+            <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+            <input type="email" id="customer-email" placeholder="Email" required>
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+
+        <button onclick="clearCart()" class="btn">Clear Cart</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fashion Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Display the cart contents
+        function displayCart() {
+            let cartItems = document.getElementById("cart-items");
+            let cartTotal = document.getElementById("cart-total");
+            cartItems.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                let li = document.createElement("li");
+                li.innerHTML = `${item.name} (x${item.quantity}) - UGX ${formatPrice(item.price * item.quantity)} 
+                    <button onclick="removeFromCart(${index})" class="btn">Remove</button>`;
+                cartItems.appendChild(li);
+            });
+
+            cartTotal.innerText = formatPrice(total);
+        }
+
+        // Remove an item from the cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart();
+        }
+
+        // Clear the cart
+        function clearCart() {
+            localStorage.removeItem("cart");
+            cart = [];
+            displayCart();
+        }
+
+        // Format the price to UGX format
+        function formatPrice(price) {
+            return price.toLocaleString(); // Formats number with commas
+        }
+
+        // Place an order
+        document.getElementById("order-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let customerName = document.getElementById("customer-name").value;
+            let customerPhone = document.getElementById("customer-phone").value;
+            let customerEmail = document.getElementById("customer-email").value;
+
+            if (cart.length === 0) {
+                alert("Your cart is empty. Add items before placing an order.");
+                return;
+            }
+
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            let order = {
+                id: orders.length + 1,
+                customer: customerName,
+                phone: customerPhone,
+                email: customerEmail,
+                items: cart,
+                total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)
+            };
+
+            orders.push(order);
+            localStorage.setItem("orders", JSON.stringify(orders));
+            clearCart();
+            alert("Order placed successfully!");
+            window.location.href = "orders.html";  // Redirect to orders page
+        });
+
+        // Load the cart items when the page is ready
+        document.addEventListener("DOMContentLoaded", displayCart);
+    </script>
+</body>
+</html>

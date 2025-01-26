@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10;
+    text-align: center;
+    background-color: #184F02;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    background: url('background.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 5px 20px;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background: #F08E9E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+section {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.product {
+     display: inline-block;
+    width: 250px;
+    margin: 10px;
+    background: #F08E9E;
+    padding: 15px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for fade effect */
+}
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    padding: 3px;
+    margin-top: 4px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 10px;
+}	
+
+#cart-items li {
+    margin: 10px 0;
+}
+.links {
+    margin-top: 20px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between links */
+    margin-top: 20px;
+}
+
+.links a {
+    flex: 1; /* Equal width for all links */
+    max-width: 150px; /* Controls max width */
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #400912;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.links a:hover {
+    background-color: #177C7F;
+    transform: scale(1.05);
+}
+
+.about:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
